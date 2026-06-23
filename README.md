@@ -73,7 +73,89 @@ Przykładowy pipeline:
 - wizualizacje.
 
 ---
+## 🔬 Offline Demo — TIMDR + Λ–τ–ρ + Model J
 
+Ten demo pokazuje działanie pipeline’u na lokalnym sygnale Mirnova (`w7x_mirnov_example.csv`).
+
+### Etapy analizy
+
+1. **TIMDR (Filter)** – redukcja szumu poprzez różnicę kolejnych próbek.  
+2. **Λ–τ–ρ (Metryki)** – obliczenie trzech parametrów charakteryzujących sygnał:  
+    - Λ – amplituda zakresu,  
+    - τ – średnia wartość bezwzględna,  
+    - ρ – energia sygnału.  
+3. **Model J (Detekcja)** – wykrywanie lokalnych maksimów w sygnale magnetycznym.
+
+### Uruchomienie demo
+
+```python
+import csv
+import matplotlib.pyplot as plt
+from demo_pipeline import timdr_filter, latro, model_j_points
+
+time, signal = [], []
+with open("w7x_mirnov_example.csv") as f:
+    reader = csv.reader(f)
+    next(reader)
+    for t, s in reader:
+        time.append(float(t))
+        signal.append(float(s))
+
+reduced = timdr_filter(signal)
+lam, tau, rho = latro(signal)
+points = model_j_points(signal)
+
+print("Λ–τ–ρ:", lam, tau, rho)
+
+plt.figure(figsize=(12,5))
+plt.plot(time, signal, label="sygnał")
+plt.scatter([time[i] for i in points], [signal[i] for i in points],
+            color="red", s=10, label="Model J")
+plt.legend()
+plt.show()
+
+## 🔬 Offline Demo — TIMDR + Λ–τ–ρ + Model J
+
+Ten demo pokazuje działanie pipeline’u na lokalnym sygnale Mirnova (`w7x_mirnov_example.csv`).
+
+### Etapy analizy
+
+1. **TIMDR (Filter)** – redukcja szumu poprzez różnicę kolejnych próbek.  
+2. **Λ–τ–ρ (Metryki)** – obliczenie trzech parametrów charakteryzujących sygnał:  
+    - Λ – amplituda zakresu,  
+    - τ – średnia wartość bezwzględna,  
+    - ρ – energia sygnału.  
+3. **Model J (Detekcja)** – wykrywanie lokalnych maksimów w sygnale magnetycznym.
+
+### Uruchomienie demo
+
+```python
+import csv
+import matplotlib.pyplot as plt
+from demo_pipeline import timdr_filter, latro, model_j_points
+
+time, signal = [], []
+with open("w7x_mirnov_example.csv") as f:
+    reader = csv.reader(f)
+    next(reader)
+    for t, s in reader:
+        time.append(float(t))
+        signal.append(float(s))
+
+reduced = timdr_filter(signal)
+lam, tau, rho = latro(signal)
+points = model_j_points(signal)
+
+print("Λ–τ–ρ:", lam, tau, rho)
+
+plt.figure(figsize=(12,5))
+plt.plot(time, signal, label="sygnał")
+plt.scatter([time[i] for i in points], [signal[i] for i in points],
+            color="red", s=10, label="Model J")
+plt.legend()
+plt.show()
+
+---
 ## 🚀 Przykład użycia
 
 ```python
