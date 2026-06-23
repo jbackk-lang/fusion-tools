@@ -5,6 +5,8 @@ Generates time-series plots and comparative views of raw vs. filtered
 fusion diagnostic data using matplotlib.
 """
 
+import math
+
 
 class TimdrVisualizer:
     """Create plots for TIMDR-processed fusion diagnostic signals."""
@@ -60,7 +62,7 @@ class TimdrVisualizer:
         ax : matplotlib.axes.Axes, optional
             Axes to draw on. Creates a new figure if None.
         color : str
-            Line colour.
+            Line color.
         title : str, optional
             Plot title. Defaults to the signal label.
 
@@ -126,11 +128,6 @@ class TimdrVisualizer:
         -------
         matplotlib.axes.Axes
         """
-        try:
-            import math
-        except ImportError:
-            pass
-
         ax = self._get_axes(ax)
 
         n = len(self.signal)
