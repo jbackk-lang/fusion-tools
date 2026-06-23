@@ -248,4 +248,61 @@ Jeśli chcesz dołożyć własne moduły, diagnostyki, filtry lub modele — zap
 MIT — wolność tworzenia, wolność eksperymentowania.
 
 ---
+## 🧪 Offline Demo — TIMDR + Λ–τ–ρ + Model J
+
+Demo działa w pełni offline na sygnale `w7x_mirnov_example.csv`.
+
+### Pipeline
+1. **TIMDR** — redukcja szumu (różnica kolejnych próbek)  
+2. **Λ–τ–ρ** — metryki strukturalne sygnału  
+3. **Model J** — detekcja punktów skrętu (lokalne maksima)
+
+### Kod demo
+
+```python
+import csv
+import matplotlib.pyplot as plt
+
+time = []
+signal = []
+
+with open("w7x_mirnov_example.csv") as f:
+    reader = csv.reader(f)
+    next(reader)
+    for t, s in reader:
+        time.append(float(t))
+        signal.append(float(s))
+
+def timdr_filter(x):
+    return [x[i+1] - x[i] for i in range(len(x)-1)]
+
+def latro(x):
+    lam = max(x) - min(x)
+    tau = sum(abs(v) for v in x) / len(x)
+    rho = sum(v*v for v in x) / len(x)
+    return lam, tau, rho
+
+def model_j_points(x):
+    pts = []
+    for i in range(1, len(x)-1):
+        if x[i] > x[i-1] and x[i] > x[i+1]:
+            pts.append(i)
+    return pts
+
+reduced = timdr_filter(signal)
+lam, tau, rho = latro(signal)
+points = model_j_points(signal)
+
+print("Λ–τ–ρ:", lam, tau, rho)
+
+plt.figure(figsize=(12,5))
+plt.plot(time, signal, label="sygnał")
+plt.scatter([time[i] for i in points], [signal[i] for i in points],
+            color="red", s=10, label="Model J")
+plt.legend()
+plt.show()
+---
+Wynik
+Wykres pokazuje sygnał Mirnova z zaznaczonymi punktami Modelu J (czerwone markery).
+---
 # ⭐ MIT — rób, co chcesz, byle z głową.
