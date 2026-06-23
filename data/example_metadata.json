@@ -1,0 +1,50 @@
+{
+  "device": "W7-X",
+  "experiment": "Wendelstein 7-X",
+  "location": "Greifswald, Germany",
+  "shot_number": 20230615001,
+  "date": "2023-06-15",
+  "time_start": "14:32:10",
+  "duration_ms": 30,
+  "plasma_current_kA": 0.0,
+  "magnetic_field_T": 2.5,
+  "heating_power_MW": 1.8,
+  "electron_density_m3": 3.2e19,
+  "electron_temperature_keV": 3.1,
+  "ion_temperature_keV": 2.8,
+  "signals": {
+    "signal_1": {
+      "description": "Thomson scattering electron temperature",
+      "units": "keV",
+      "channel": 1,
+      "calibration_factor": 1.025
+    },
+    "signal_2": {
+      "description": "Thomson scattering electron density",
+      "units": "1e19 m^-3",
+      "channel": 2,
+      "calibration_factor": 0.998
+    },
+    "signal_3": {
+      "description": "ECE radiometer channel 3",
+      "units": "keV",
+      "channel": 3,
+      "calibration_factor": 1.012
+    },
+    "signal_4": {
+      "description": "Bolometer total radiated power",
+      "units": "MW",
+      "channel": 4,
+      "calibration_factor": 1.001
+    },
+    "signal_5": {
+      "description": "Soft X-ray diode array channel 5",
+      "units": "W/m^2",
+      "channel": 5,
+      "calibration_factor": 0.987
+    }
+  },
+  "operator": "FusionLab",
+  "data_version": "1.0",
+  "notes": "Example discharge for demonstration purposes"
+}
