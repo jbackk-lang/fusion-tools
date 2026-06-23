@@ -167,4 +167,3 @@ MIT — wolność tworzenia, wolność eksperymentowania.
 
 ---
 # ⭐ MIT — rób, co chcesz, byle z głową.
-Chcesz, żebym przygotował **README na stronę główną Twojej organizacji GitHub** (`jbackk-lang.github.io`) w tym samym stylu?
