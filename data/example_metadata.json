@@ -1,0 +1,6 @@
+{
+    "source": "W7-X public data",
+    "diagnostic": "Mirnov coil",
+    "sampling_rate": "1 MHz",
+    "notes": "Przykładowy sygnał do testów TIMDR i Λ–τ–ρ"
+}
