@@ -93,6 +93,78 @@ print("Punkty Modelu J:", points[:10])
 
 
 ---
+# jbackk-lang — Struktury Informacji, Modele Skrętu i Analiza Sygnałów
+
+Organizacja skupiona na badaniu struktury informacji, redukcji wymiarów,
+modelach skrętu oraz narzędziach do analizy sygnałów — od języka naturalnego,
+przez dane techniczne, aż po diagnostykę plazmy w fuzji jądrowej.
+
+Nasze projekty łączą:
+- modele abstrakcyjne (GIA, Λ–τ–ρ, Model J),
+- redukcję informacji (TIMDR),
+- analizę sygnałów,
+- narzędzia open‑source,
+- zastosowania naukowe i inżynieryjne.
+
+---
+
+## 🔥 Projekty
+
+### **fusion-tools**
+Narzędzia do analizy danych z fuzji jądrowej (W7‑X, JET, DIII‑D, EAST)  
+z wykorzystaniem modeli:
+- TIMDR — redukcja informacji i defektów,
+- Λ–τ–ρ — analiza strukturalna,
+- Model J — detekcja punktów skrętu,
+- GIA — interpretacja warstwowa.
+
+Repozytorium zawiera:
+- parsowanie danych (HDF5, MDSplus, CSV),
+- filtry i ekstrakcję cech,
+- wykrywanie anomalii,
+- przykładowe notebooki,
+- pipeline analizy plazmy.
+
+---
+
+## 🧠 Filozofia
+
+Każdy sygnał — językowy, fizyczny, techniczny — ma strukturę.  
+Naszym celem jest:
+- wydobyć tę strukturę,
+- zredukować szum,
+- znaleźć punkty skrętu,
+- zrozumieć transformacje,
+- opisać defekty.
+
+Modele GIA, TIMDR, Λ–τ–ρ i Model J powstały jako narzędzia
+do pracy z informacją w sposób spójny, warstwowy i logiczny.
+
+---
+
+## 🌍 Zastosowania
+
+- analiza sygnałów z fuzji jądrowej,
+- wykrywanie anomalii w czasie rzeczywistym,
+- przetwarzanie języka naturalnego,
+- analiza danych technicznych,
+- redukcja wymiarów,
+- modele predykcyjne,
+- wizualizacja struktury informacji.
+
+---
+
+## 🤝 Współpraca
+
+Projekty są otwarte.  
+Jeśli chcesz dołożyć własne moduły, diagnostyki, filtry lub modele — zapraszamy.
+
+---
+
+## 📜 Licencja
+
+MIT — wolność tworzenia, wolność eksperymentowania.
+
 ---
 # ⭐ MIT — rób, co chcesz, byle z głową.
 Chcesz, żebym przygotował **README na stronę główną Twojej organizacji GitHub** (`jbackk-lang.github.io`) w tym samym stylu?
